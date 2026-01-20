@@ -1,66 +1,61 @@
-import { Button, Form, Input, Select } from 'antd';
-import { useModel } from 'umi';
+import { Modal, Form, Input, InputNumber } from 'antd';
 
-const FormTodoList = () => {
-	const { data, todoItem, isEdit, setVisible, getDataTodo } = useModel('todolist');
-	const colors = ['#7498d8', '#f1d9a4', '#67c759', '#f29092'];
+interface Props {
+  open: boolean;
+  onCancel: () => void;
+  onSubmit: (values: any) => void;
+}
 
-	const getRandomInt = (min: number, max: number) => {
-		const minTemp = Math.ceil(min);
-		const maxTemp = Math.floor(max);
-		return Math.floor(Math.random() * (maxTemp - minTemp + 1)) + min;
-	};
+const ProductForm = ({ open, onCancel, onSubmit }: Props) => {
+  const [form] = Form.useForm();
 
-	return (
-		<Form
-			labelCol={{ span: 24 }}
-			onFinish={(values) => {
-				const payload = {
-					...values,
-					color: colors[getRandomInt(0, 3)],
-				};
-				const index = data.findIndex((item: any) => item.content === todoItem?.content);
-				const dataTemp: TodoList.TodoItem[] = [...data];
-				dataTemp.splice(index, 1, payload);
-				const dataLocal = isEdit ? dataTemp : [payload, ...data];
-				localStorage.setItem('todolist', JSON.stringify(dataLocal));
-				setVisible(false);
-				getDataTodo();
-			}}
-		>
-			<Form.Item
-				initialValue={todoItem?.content}
-				label='Content'
-				name='content'
-				rules={[{ required: true, message: 'Please input your content!' }]}
-			>
-				<Input />
-			</Form.Item>
-			<Form.Item
-				initialValue={todoItem?.category}
-				label='Category'
-				name='category'
-				rules={[{ required: true, message: 'Please input your category!' }]}
-			>
-				<Select
-					options={[
-						{ value: 'Python', label: 'Python' },
-						{ value: 'React', label: 'React' },
-						{
-							value: 'JS',
-							label: 'JS',
-						},
-					]}
-				/>
-			</Form.Item>
-			<div className='form-footer'>
-				<Button htmlType='submit' type='primary'>
-					{isEdit ? 'Chỉnh sửa' : 'Thêm mới'}
-				</Button>
-				<Button onClick={() => setVisible(false)}>Hủy</Button>
-			</div>
-		</Form>
-	);
+  return (
+    <Modal
+      title="Thêm sản phẩm"
+      visible={open}
+      onCancel={onCancel}
+      onOk={() => form.submit()}
+    >
+      <Form
+        form={form}
+        layout="vertical"
+        onFinish={(values) => {
+          onSubmit(values);
+          form.resetFields();
+        }}
+      >
+        <Form.Item
+          label="Tên sản phẩm"
+          name="name"
+          rules={[{ required: true, message: 'Nhập tên sản phẩm' }]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Giá"
+          name="price"
+          rules={[
+            { required: true },
+            { type: 'number', min: 1, message: 'Giá phải > 0' },
+          ]}
+        >
+          <InputNumber style={{ width: '100%' }} />
+        </Form.Item>
+
+        <Form.Item
+          label="Số lượng"
+          name="quantity"
+          rules={[
+            { required: true },
+            { type: 'number', min: 1, message: 'Số lượng phải > 0' },
+          ]}
+        >
+          <InputNumber style={{ width: '100%' }} />
+        </Form.Item>
+      </Form>
+    </Modal>
+  );
 };
 
-export default FormTodoList;
+export default ProductForm;

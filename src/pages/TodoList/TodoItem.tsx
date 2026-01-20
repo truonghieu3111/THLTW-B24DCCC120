@@ -1,61 +1,57 @@
-import { DeleteOutlined, FormOutlined } from '@ant-design/icons';
-import { useModel } from 'umi';
+import { Table, Button, Popconfirm } from 'antd';
 
-const TodoItem = (props: { record: TodoList.TodoItem; index: number }) => {
-	const { getDataTodo, setVisible, setTodoItem, setIsEdit } = useModel('todolist');
-	const { record, index } = props;
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
+}
 
-	const color = record.color;
+interface Props {
+  data: Product[];
+  onDelete: (id: number) => void;
+}
 
-	return (
-		<>
-			<div style={{ height: 3, width: 220, backgroundColor: color }} />
-			<div
-				style={{
-					position: 'relative',
-					padding: 16,
-					borderRadius: '0px 0px 10px 10px',
-					width: 220,
-					height: 150,
-					backgroundColor: '#fff',
-				}}
-			>
-				<div
-					style={{
-						width: 60,
-						height: 20,
-						backgroundColor: color,
-						fontSize: 14,
-						textAlign: 'center',
-						borderRadius: 3,
-						color: '#fff',
-					}}
-				>
-					{record.category}
-				</div>
-				<div style={{ marginTop: 10, fontSize: 16 }}>{record.content}</div>
-				<div style={{ position: 'absolute', bottom: 10, right: 10 }}>
-					<FormOutlined
-						onClick={() => {
-							setVisible(true);
-							setTodoItem(record);
-							setIsEdit(true);
-						}}
-						style={{ color: color }}
-					/>
-					<DeleteOutlined
-						onClick={() => {
-							const dataLocal: any = JSON.parse(localStorage.getItem('todolist') as any);
-							const newData = dataLocal.filter((item: any) => item.content !== record.content);
-							localStorage.setItem('todolist', JSON.stringify(newData));
-							getDataTodo();
-						}}
-						style={{ color: color, marginLeft: 8 }}
-					/>
-				</div>
-			</div>
-		</>
-	);
+const ProductTable = ({ data, onDelete }: Props) => {
+  const columns = [
+    {
+      title: 'STT',
+      render: (_: any, __: any, index: number) => index + 1,
+    },
+    {
+      title: 'Tên sản phẩm',
+      dataIndex: 'name',
+    },
+    {
+      title: 'Giá',
+      dataIndex: 'price',
+      render: (price: number) => price.toLocaleString() + ' đ',
+    },
+    {
+      title: 'Số lượng',
+      dataIndex: 'quantity',
+    },
+    {
+      title: 'Thao tác',
+      render: (_: any, record: Product) => (
+        <Popconfirm
+          title="Bạn có chắc muốn xóa?"
+          onConfirm={() => onDelete(record.id)}
+        >
+          <Button danger>Xóa</Button>
+        </Popconfirm>
+      ),
+    },
+  ];
+
+  return (
+    <Table
+      rowKey="id"
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+    />
+  );
 };
 
-export default TodoItem;
+export default ProductTable;
