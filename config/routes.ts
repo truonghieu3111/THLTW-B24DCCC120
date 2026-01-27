@@ -47,6 +47,12 @@
 		name: 'baitap1',
 		component: './baitap1',
 	},
+		{
+		path: '/baitap2',
+		name: 'baitap2',
+		component: './baitap2',
+	},
+
 
 
 	// DANH MUC HE THONG
