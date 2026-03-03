@@ -53,6 +53,17 @@
 		component: './baitap2',
 	},
 
+	{
+		path: '/thuchanh1_bai1',
+		name: 'thuchanh1_bai1',
+		component: './thuchanh1_bai1',
+	},
+	{
+		path: '/thuchanh1_bai2',
+		name: 'thuchanh1_bai2',
+		component: './thuchanh1_bai2',
+	},
+
 
 
 	// DANH MUC HE THONG
