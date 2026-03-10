@@ -63,6 +63,16 @@
 		name: 'thuchanh1_bai2',
 		component: './thuchanh1_bai2',
 	},
+	{
+		path: '/thuchanh2_bai1',
+		name: 'thuchanh2_bai1',
+		component: './thuchanh2_bai1',
+	},
+		{
+		path: '/thuchanh2_bai2',
+		name: 'thuchanh2_bai2',
+		component: './thuchanh2_bai2',
+	},
 
 
 
