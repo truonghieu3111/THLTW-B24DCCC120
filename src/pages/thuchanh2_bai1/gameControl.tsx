@@ -1,6 +1,6 @@
 import { Button, Space } from 'antd';
 
-export default function gameControl({ onSelect }: any) {
+export default function GameControl({ onSelect }: any) {
   return (
     <Space>
       <Button type="primary" onClick={() => onSelect('Kéo')}>

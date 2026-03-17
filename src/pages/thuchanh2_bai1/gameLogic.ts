@@ -5,13 +5,13 @@ export const getComputerChoice = () => {
   return choices[randomIndex];
 };
 
-export const getResult = (a: string, b: string) => {
-  if (a === b) return 'Hòa';
+export const getResult = (player: string, computer: string) => {
+  if (player === computer) return 'Hòa';
 
   if (
-    (a === 'Kéo' && b === 'Bao') ||
-    (a === 'Búa' && b === 'Kéo') ||
-    (a === 'Bao' && b === 'Búa')
+    (player === 'Kéo' && computer === 'Bao') ||
+    (player === 'Búa' && computer === 'Kéo') ||
+    (player === 'Bao' && computer === 'Búa')
   ) {
     return 'Thắng';
   }

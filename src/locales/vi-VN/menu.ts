@@ -9,5 +9,4 @@ export default {
 	'menu.DanhMuc': 'Danh mục',
 	'menu.DanhMuc.ChucVu': 'Chức vụ',
 
-	'menu.thuchanh2_bai1': 'Thực hành 2 - Bài 1',
 };

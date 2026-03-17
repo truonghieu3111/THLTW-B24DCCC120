@@ -73,6 +73,11 @@
 		name: 'thuchanh2_bai2',
 		component: './thuchanh2_bai2',
 	},
+		{
+		path: '/thuchanh3',
+		name: 'thuchanh3',
+		component: './thuchanh3',
+	},
 
 
 
