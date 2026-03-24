@@ -78,6 +78,11 @@
 		name: 'thuchanh3',
 		component: './thuchanh3',
 	},
+		{
+		path: '/thuchanh04',
+		name: 'thuchanh04',
+		component: './thuchanh04',
+		},
 
 
 
