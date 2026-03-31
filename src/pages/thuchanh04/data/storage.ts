@@ -5,7 +5,9 @@ export const books = [
 
 export const decisions = [
   { id: 1, soQD: "QD01", date: "2024-06-01", desc: "Đợt 1", year: 2024, views: 0 },
-  { id: 2, soQD: "QD02", date: "2024-09-01", desc: "Đợt 2", year: 2024, views: 0 }
+  { id: 2, soQD: "QD02", date: "2024-09-01", desc: "Đợt 2", year: 2024, views: 0 },
+    { id: 1, soQD: "QD03", date: "2025-08-02", desc: "Đợt 1", year: 2025, views: 0 },
+  { id: 2, soQD: "QD04", date: "2025-11-02", desc: "Đợt 2", year: 2025, views: 0 }
 ];
 
 export const fields = [

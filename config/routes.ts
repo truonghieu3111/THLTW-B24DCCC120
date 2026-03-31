@@ -82,7 +82,13 @@
 		path: '/thuchanh04',
 		name: 'thuchanh04',
 		component: './thuchanh04',
-		},
+	},	
+		{
+		path: '/thuchanh5',
+		name: 'thuchanh5',
+		component: './thuchanh5',
+	},
+
 
 
 
