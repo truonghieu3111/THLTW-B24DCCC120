@@ -13,7 +13,9 @@ const defaultClubs = [
     name: "CLB Âm nhạc",
     createdAt: "2024-02-01",
     leader: "Trần Thị B",
-    active: true
+    active: true,
+    image: "",
+    descrpition: "<p>CLB về âm nhạc<p>"
   }
 ];
 

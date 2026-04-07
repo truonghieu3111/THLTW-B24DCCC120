@@ -88,6 +88,12 @@
 		name: 'thuchanh5',
 		component: './thuchanh5',
 	},
+		{
+		path: '/thuchanh6',
+		name: 'thuchanh6',
+		component: './thuchanh6',
+	},
+	
 
 
 
