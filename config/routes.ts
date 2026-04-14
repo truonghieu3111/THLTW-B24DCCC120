@@ -93,6 +93,11 @@
 		name: 'thuchanh6',
 		component: './thuchanh6',
 	},
+	{
+		path: '/ktgk',
+		name: 'ktgk',
+		component: './ktgk',
+	},
 	
 
 
