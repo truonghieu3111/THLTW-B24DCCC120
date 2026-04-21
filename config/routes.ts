@@ -94,6 +94,11 @@
 		component: './thuchanh6',
 	},
 	{
+		path: '/thuchanh7',
+		name: 'thuchanh7',
+		component: './thuchanh7',
+	},
+	{
 		path: '/ktgk',
 		name: 'ktgk',
 		component: './ktgk',
