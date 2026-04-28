@@ -99,6 +99,11 @@
 		component: './thuchanh7',
 	},
 	{
+		path: '/thuchanh8',
+		name: 'thuchanh8',
+		component: './thuchanh8',
+	},
+	{
 		path: '/ktgk',
 		name: 'ktgk',
 		component: './ktgk',
